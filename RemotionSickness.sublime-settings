@@ -1,0 +1,14 @@
+{
+  // Configure mounted paths so ChangedLines can run git on the specified
+  // remote host
+  "mounted_paths": [
+    {
+      "local_prefix": "/Users/awyler/dev2/",
+      "remote_prefix": "/",
+      "remote_host": "dev"
+    }
+  ],
+
+  "reload_on_remote_change": true,
+  "remote_last_touched_command": "stat -xt %s {0} | awk 'NR == 6 {{ print $2 }}'"
+}
