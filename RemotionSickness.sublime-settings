@@ -10,5 +10,5 @@
   ],
 
   "reload_on_remote_change": true,
-  "remote_last_touched_command": "stat -xt %s {0} | awk 'NR == 6 {{ print $2 }}'"
+  "remote_last_touched_command": "stat {0} -t | awk '{{print $12}}'"
 }
