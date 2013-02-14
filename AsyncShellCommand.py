@@ -28,12 +28,20 @@ class AsyncShellCommand(threading.Thread):
         self.remote_shell = remote_shell
         return self
 
-    def run(self):
+    def print_command(self):
+        print self.build_command()
+        return self
+
+    def build_command(self):
         shell_script = self.command.format(*self.args)
         if (self.remote_shell):
             shell_script = "ssh {0} \"{1}\"".format(
                 self.remote_shell,
                 shell_script.replace("\"", "\\\"").replace("$", "\\$"))
+        return shell_script
+
+    def run(self):
+        shell_script = self.build_command()
 
         proc = subprocess.Popen(
             shell_script,

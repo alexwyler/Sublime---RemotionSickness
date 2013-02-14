@@ -3,12 +3,19 @@
   // remote host
   "mounted_paths": [
     {
-      "local_prefix": "/Users/awyler/dev2/",
-      "remote_prefix": "/",
-      "remote_host": "dev"
+      // host name
+      "remote_host": "dev",
+      // absolute path to local mount point
+      "local_mount_path": "/Users/awyler/dev2/",
+      // absolute path to remote mount point
+      "remote_mount_path": "/",
+      // absolute path to remote project (for tags, git etc.)
+      "remote_project_path": "/home/awyler/www/"
     }
   ],
 
-  "reload_on_remote_change": true,
-  "remote_last_touched_command": "stat {0} -t | awk '{{print $12}}'"
+  "reload_on_remote_change": false,
+  "remote_last_touched_command": "stat {0} -t | awk '{{print $12}}'",
+  "remote_tags_command": "cd {0} && grep -P '^{1}\\t' tags | head -n 10",
+  "remote_ls_command": "cd {0} && find . -name .git -prune -o -type f -print | sed 's/^\\.\\///'"
 }

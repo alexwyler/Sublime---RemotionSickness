@@ -1,0 +1,5 @@
+[
+  { "keys": ["alt+."], "command": "tags_search" },
+  { "keys": ["super+shift+o"], "command": "open_remote"},
+  { "keys": ["super+ctrl+shift+o"], "command": "open_remote", "args": {"force_reload": true}}
+]
